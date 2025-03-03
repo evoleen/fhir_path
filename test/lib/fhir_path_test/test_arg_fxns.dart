@@ -4,8 +4,7 @@
 import 'dart:convert';
 
 // Package imports:
-import 'package:fhir_primitives/fhir_primitives.dart';
-import 'package:fhir_r4/fhir_r4.dart';
+import 'package:fhir/r4.dart';
 import 'package:test/test.dart';
 
 // Project imports:
@@ -977,7 +976,7 @@ void testArgFxns() {
               walkFhirPath(
                   context: patientExample(),
                   pathExpression:
-                      r'Patient.contact.name.family.extension(%`ext-humanname-own-prefix`).value'),
+                      r'Patient.contact.name.family.extension(%`ext-HumanName-own-prefix`).value'),
               ['VV']));
     });
 
@@ -1160,13 +1159,13 @@ final resource = Patient(
 
 final bundle = Bundle(
   entry: [
-    BundleEntry(resource: Patient(id: '1')),
-    BundleEntry(resource: Practitioner(id: '2')),
-    BundleEntry(resource: Patient(id: '3')),
-    BundleEntry(resource: Practitioner(id: '4')),
-    BundleEntry(resource: Practitioner(id: '5')),
-    BundleEntry(resource: Patient(id: '6')),
-    BundleEntry(resource: Patient(id: '7')),
+    BundleEntry(resource: Patient(fhirId: '1')),
+    BundleEntry(resource: Practitioner(fhirId: '2')),
+    BundleEntry(resource: Patient(fhirId: '3')),
+    BundleEntry(resource: Practitioner(fhirId: '4')),
+    BundleEntry(resource: Practitioner(fhirId: '5')),
+    BundleEntry(resource: Patient(fhirId: '6')),
+    BundleEntry(resource: Patient(fhirId: '7')),
   ],
 );
 
@@ -1299,7 +1298,7 @@ const patientJsonString = r'''{
 				"_family": {
 					"extension": [
 						{
-							"url": "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+							"url": "http://hl7.org/fhir/StructureDefinition/HumanName-own-prefix",
 							"valueString": "VV"
 						}
 					]
