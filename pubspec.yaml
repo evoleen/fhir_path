@@ -9,17 +9,11 @@ environment:
 
 dependencies:
   collection: ^1.18.0
-  fhir_dstu2:
-    path: ../fhir_dstu2
   fhir_primitives: ^0.1.0
-  fhir_r4:
-    path: ../fhir_r4
-  fhir_r5:
-    path: ../fhir_r5
-  fhir_r6:
-    path: ../fhir_r6
-  fhir_stu3:
-    path: ../fhir_stu3
+  fhir:
+    git:
+      url: https://github.com/evoleen/fhir.git
+      ref: dc4411c
   ucum: ^0.4.0
   petitparser: ^6.0.2
 
